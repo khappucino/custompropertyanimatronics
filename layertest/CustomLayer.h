@@ -11,5 +11,6 @@
 
 @interface CustomLayer : CALayer
 @property (nonatomic, assign) CGFloat animationDuration;
-@property (nonatomic, strong) NSNumber *logoLevel;
+@property (nonatomic, strong) NSNumber *initialValue;
+@property (nonatomic, strong) NSNumber *finalValue;
 @end

@@ -26,18 +26,11 @@
     // Retrieve the layer
     CustomLayer *customLayer = (CustomLayer *) customView.layer;
 
-    [customLayer setNeedsDisplay];
+    customLayer.animationDuration = 5.0;
+    customLayer.initialValue = @300;
+    customLayer.finalValue = @0;
 
-    customLayer.logoLevel = @300;
 
-
-//    [UIView animateWithDuration:4.0f animations:^{
-//        customLayer.logoLevel = @300.0;
-//        self.view.alpha = 1.0;
-//    } completion:^(BOOL finished) {
-//       
-//    }];
- 
     
 }
 

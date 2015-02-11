@@ -14,6 +14,8 @@
 		F429837E1A8B09B6008C2613 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F429837D1A8B09B6008C2613 /* Images.xcassets */; };
 		F42983811A8B09B6008C2613 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F429837F1A8B09B6008C2613 /* LaunchScreen.xib */; };
 		F429838D1A8B09B6008C2613 /* layertestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F429838C1A8B09B6008C2613 /* layertestTests.m */; };
+		F42983A21A8B107E008C2613 /* CustomLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F429839D1A8B107E008C2613 /* CustomLayer.m */; };
+		F42983A31A8B107E008C2613 /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = F429839F1A8B107E008C2613 /* CustomView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		F42983861A8B09B6008C2613 /* layertestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = layertestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F429838B1A8B09B6008C2613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F429838C1A8B09B6008C2613 /* layertestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = layertestTests.m; sourceTree = "<group>"; };
+		F429839C1A8B107E008C2613 /* CustomLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLayer.h; sourceTree = "<group>"; };
+		F429839D1A8B107E008C2613 /* CustomLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLayer.m; sourceTree = "<group>"; };
+		F429839E1A8B107E008C2613 /* CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomView.h; sourceTree = "<group>"; };
+		F429839F1A8B107E008C2613 /* CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,10 @@
 				F429837A1A8B09B6008C2613 /* Main.storyboard */,
 				F429837D1A8B09B6008C2613 /* Images.xcassets */,
 				F429837F1A8B09B6008C2613 /* LaunchScreen.xib */,
+				F429839C1A8B107E008C2613 /* CustomLayer.h */,
+				F429839D1A8B107E008C2613 /* CustomLayer.m */,
+				F429839E1A8B107E008C2613 /* CustomView.h */,
+				F429839F1A8B107E008C2613 /* CustomView.m */,
 				F42983701A8B09B6008C2613 /* Supporting Files */,
 			);
 			path = layertest;
@@ -219,6 +229,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F42983A31A8B107E008C2613 /* CustomView.m in Sources */,
+				F42983A21A8B107E008C2613 /* CustomLayer.m in Sources */,
 				F42983791A8B09B6008C2613 /* ViewController.m in Sources */,
 				F42983761A8B09B6008C2613 /* AppDelegate.m in Sources */,
 				F42983731A8B09B6008C2613 /* main.m in Sources */,

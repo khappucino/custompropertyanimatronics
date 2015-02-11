@@ -10,16 +10,16 @@
 
 
 @implementation CustomLayer
-@dynamic logoLevel;
+@dynamic finalValue;
 
 
 // Initialize custom values
 - (instancetype) init
 {
-    if (!(self = [super init])) return self;
-    //self.logoLevel = @(0.0f);
-    // _animationDuration = 2.0f; // slow everything down
-    //[self setNeedsDisplay];
+    self = [super init];
+    if(self) {
+        
+    }
     return self;
 }
 
@@ -28,15 +28,15 @@
 - (CABasicAnimation *) customAnimationForKey: (NSString *) key
 {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:key];
-	animation.fromValue = @0;
-    animation.duration = 5.0;
+	animation.fromValue = self.initialValue;
+    animation.duration = self.animationDuration;
     return animation;
 }
 
 // Animate
 -(id<CAAction>)actionForKey:(NSString *)key
 {
-    if ([key isEqualToString:@"logoLevel"]) {
+    if ([key isEqualToString:@"finalValue"]) {
         return [self customAnimationForKey:key];
     }
     return [super actionForKey:key]; 
@@ -47,9 +47,10 @@
     
     UIGraphicsPushContext(context);
 
-    NSLog(@"alpha = %f", self.logoLevel.floatValue);
+    NSLog(@"alpha = %f", self.finalValue.floatValue);
+    CGContextClearRect(context, self.frame);
     CGContextSetFillColorWithColor(context, [UIColor greenColor].CGColor);
-    CGContextFillRect(context, CGRectMake(0,0, self.logoLevel.floatValue, self.logoLevel.floatValue));
+    CGContextFillRect(context, CGRectMake(0,0, self.finalValue.floatValue, self.finalValue.floatValue));
 
     
     
@@ -58,8 +59,7 @@
 
 + (BOOL) needsDisplayForKey:(NSString *) key
 {
-    if ([key isEqualToString:@"logoLevel"]) return YES;
-//    if ([key isEqualToString:@"imageLevel"]) return YES;
+    if ([key isEqualToString:@"finalValue"]) return YES;
     return [super needsDisplayForKey:key];
 }
 @end
