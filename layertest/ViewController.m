@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "CustomLayer.h"
+#import "CustomView.h"
 
 @interface ViewController ()
 
@@ -17,11 +19,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    CustomView *customView = [[CustomView alloc] initWithFrame:CGRectMake(0, 0, 500, 500)];
+    [self.view addSubview:customView];
+        
+    // Retrieve the layer
+    CustomLayer *customLayer = (CustomLayer *) customView.layer;
+
+    [customLayer setNeedsDisplay];
+
+    customLayer.logoLevel = @300;
+
+
+//    [UIView animateWithDuration:4.0f animations:^{
+//        customLayer.logoLevel = @300.0;
+//        self.view.alpha = 1.0;
+//    } completion:^(BOOL finished) {
+//       
+//    }];
+ 
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end
