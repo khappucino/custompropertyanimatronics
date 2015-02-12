@@ -10,4 +10,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomView : UIView
+@property (nonatomic, strong) NSArray *pointsArray;
 @end

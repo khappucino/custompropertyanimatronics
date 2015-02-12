@@ -19,9 +19,11 @@
 {
     self = [super init];
     if(self) {
+        self.layer.delegate = self;
     }
     return self;
 }
+
 
 
 

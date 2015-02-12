@@ -7,6 +7,7 @@
 //
 
 #import "CustomLayer.h"
+#import "CustomView.h"
 
 
 @implementation CustomLayer
@@ -47,13 +48,28 @@
     
     UIGraphicsPushContext(context);
 
-    NSLog(@"alpha = %f", self.finalValue.floatValue);
-    CGContextClearRect(context, self.frame);
-    CGContextSetFillColorWithColor(context, [UIColor greenColor].CGColor);
-    CGContextFillRect(context, CGRectMake(0,0, self.finalValue.floatValue, self.finalValue.floatValue));
+    CustomView *v = self.delegate;
+    int val = v.pointsArray.count * (self.finalValue.floatValue / 100.0);
+    NSLog(@"val = %d", val);
 
+    CGContextClearRect(context, self.frame);
+    CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
+    CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
+    CGContextSetLineWidth(context, 4.0);
+ 
+
+    for(int i = 0; i < val-1; i++) {
+        NSValue *pVal = (NSValue*)v.pointsArray[i];
+        CGPoint pPoint = [pVal CGPointValue];
+        NSValue *pVal1 = (NSValue*)v.pointsArray[i+1];
+        CGPoint pPoint1 = [pVal1 CGPointValue];
+        CGContextMoveToPoint(context, pPoint.x, pPoint.y);
+        CGContextAddLineToPoint(context, pPoint1.x, pPoint1.y);
+    }
     
+    CGContextStrokePath(context);
     
+ 
     UIGraphicsPopContext();
 }
 

@@ -11,7 +11,8 @@
 #import "CustomView.h"
 
 @interface ViewController ()
-
+@property (strong, nonatomic) NSMutableArray *points;
+@property (strong, nonatomic) CustomView *customView;
 @end
 
 @implementation ViewController
@@ -20,16 +21,33 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    CustomView *customView = [[CustomView alloc] initWithFrame:CGRectMake(0, 0, 500, 500)];
-    [self.view addSubview:customView];
-        
+    
+    self.points = [[NSMutableArray alloc] init];
+    
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchLocation = [touch locationInView:self.view];
+    [self.points addObject:[NSValue valueWithCGPoint:touchLocation]];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    self.customView = [[CustomView alloc] initWithFrame:CGRectMake(0, 0, 500, 500)];
+    [self.view addSubview:self.customView];
+    
     // Retrieve the layer
-    CustomLayer *customLayer = (CustomLayer *) customView.layer;
-
+    CustomLayer *customLayer = (CustomLayer *) self.customView.layer;
+    
     customLayer.animationDuration = 5.0;
-    customLayer.initialValue = @300;
+    customLayer.initialValue = @100;
+    self.customView.pointsArray = self.points;
+    
+    
     customLayer.finalValue = @0;
-
+    
+    
 
     
 }
