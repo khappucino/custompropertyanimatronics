@@ -39,13 +39,17 @@
     
     // Retrieve the layer
     CustomLayer *customLayer = (CustomLayer *) self.customView.layer;
-    
     customLayer.animationDuration = 5.0;
-    customLayer.initialValue = @100;
+    customLayer.initialValue = @0;
     self.customView.pointsArray = self.points;
     
     
-    customLayer.finalValue = @0;
+    customLayer.finalValue = @100;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        customLayer.initialValue = @100;
+        customLayer.finalValue = @0;
+    });
     
     
 
